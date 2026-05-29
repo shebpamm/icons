@@ -21,8 +21,25 @@
           python = pkgs.python314.withPackages (ps: with ps; [
             fontforge
           ]);
+
+          fonts = pkgs.stdenv.mkDerivation {
+            name = "sheb-icons";
+            version = "1.0.0";
+            src = ./.;
+            buildInputs = [ python ];
+
+            buildPhase = ''
+              python main.py generate
+            '';
+
+            installPhase = ''
+              mkdir -p $out/share/fonts/truetype
+              cp icons.ttf $out/share/fonts/truetype/
+            '';
+          };
         in
         {
+          packages.default = fonts;
           devShells.default = pkgs.mkShell {
             buildInputs = [ python pkgs.ty pkgs.ruff ];
           };

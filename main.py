@@ -3,6 +3,7 @@ import argparse
 
 import fontforge
 
+
 class Glyph:
     def __init__(self, name: str, codepoint: str, src: Path):
         self.name = name
@@ -23,6 +24,7 @@ class Glyph:
         glyph.autoHint()
 
         glyph.width = 1000
+
 
 GLYPHS = [
     Glyph("ansible", "U+F845", Path("glyphs/ansible.svg")),
@@ -57,9 +59,11 @@ def generate():
 
     font.generate("icons.ttf")
 
+
 def print_glyphs():
     for glyph in GLYPHS:
         print(f"{glyph.name}: {chr(glyph.raw_codepoint)} ({glyph.codepoint})")
+
 
 if __name__ == "__main__":
     args = parse()

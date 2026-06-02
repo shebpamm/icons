@@ -18,9 +18,11 @@
       perSystem =
         { pkgs, ... }:
         let
-          python = pkgs.python314.withPackages (ps: with ps; [
-            fontforge
-          ]);
+          python = pkgs.python314.withPackages (
+            ps: with ps; [
+              fontforge
+            ]
+          );
 
           fonts = pkgs.stdenv.mkDerivation {
             name = "sheb-icons";
@@ -41,7 +43,11 @@
         {
           packages.default = fonts;
           devShells.default = pkgs.mkShell {
-            buildInputs = [ python pkgs.ty pkgs.ruff ];
+            buildInputs = [
+              python
+              pkgs.ty
+              pkgs.ruff
+            ];
           };
         };
     };

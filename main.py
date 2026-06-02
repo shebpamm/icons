@@ -29,6 +29,7 @@ class Glyph:
 GLYPHS = [
     Glyph("ansible", "U+F845", Path("glyphs/ansible.svg")),
     Glyph("ansible-borderless", "U+F846", Path("glyphs/ansible-borderless.svg")),
+    Glyph("cdk", "U+F847", Path("glyphs/cdk.svg")),
 ]
 
 

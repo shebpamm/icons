@@ -2,8 +2,6 @@ from pathlib import Path
 import argparse
 
 import fontforge
-import psMat
-
 
 class Glyph:
     def __init__(self, name: str, codepoint: str, src: Path):
@@ -28,6 +26,7 @@ class Glyph:
 
 GLYPHS = [
     Glyph("ansible", "U+F845", Path("glyphs/ansible.svg")),
+    Glyph("ansible-borderless", "U+F846", Path("glyphs/ansible-borderless.svg")),
 ]
 
 
